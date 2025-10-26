@@ -87,7 +87,7 @@ Note: Shortened length of   company and removed year becaus it is constant.
 /*                                        |   select                                    |                                  */
 /*                                        |     company                                 |                                  */
 /*                                        |    ,yoy                                     |                                  */
-/*                                        |    ,rank() over (                           |                                  */
+/*                                        |    ,row_number() over (                     |                                  */
 /*                                        |         partition by company                |                                  */
 /*                                        |         order by yoy desc                   |                                  */
 /*                                        |     ) as rank                               |                                  */
@@ -241,7 +241,7 @@ want<-sqldf('
   select
     company
    ,yoy
-   ,rank() over (
+   ,row_number() over (
         partition by company
         order by yoy desc
     ) as rank

@@ -89,7 +89,7 @@ Sum the three largest yoy growth by company sql partitioning and rank sas r pyth
     /*                                        |   select                                    |                                  */
     /*                                        |     company                                 |                                  */
     /*                                        |    ,yoy                                     |                                  */
-    /*                                        |    ,rank() over (                           |                                  */
+    /*                                        |    ,row_number() over (                     |                                  */
     /*                                        |         partition by company                |                                  */
     /*                                        |         order by yoy desc                   |                                  */
     /*                                        |     ) as rank                               |                                  */
@@ -243,7 +243,7 @@ Sum the three largest yoy growth by company sql partitioning and rank sas r pyth
       select
         company
        ,yoy
-       ,rank() over (
+       ,row_number() over (
             partition by company
             order by yoy desc
         ) as rank
